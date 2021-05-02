@@ -32,8 +32,8 @@ public class FP04Behavioural {
 		
 		
 	// without behaviour parameterization
-        number.stream().map( x -> x*x).forEach(System.out::println);
-        number.stream().map( x -> x*x*x).forEach(System.out::println);
+        number.stream().map( x -> x*x).collect(Collectors.toList());
+        number.stream().map( x -> x*x*x).collect(Collectors.toList());
 
         multiandprint(number, x -> x*x*x);
         multiandprint(number, x -> x*x);	
@@ -48,10 +48,11 @@ public class FP04Behavioural {
 	
 
 	}
-	private static void multiandprint(List<Integer> number, Function<Integer, Integer> mapper) {
-		number.stream()
+	
+        private static List<Integer> multiandprint(List<Integer> number, Function<Integer, Integer> mapper) {
+		return number.stream()
 		 .map( mapper)
-		 .forEach(System.out::println);
+		 .collect(Collectors.toList());
 	}
 	
 	
