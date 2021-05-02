@@ -36,7 +36,7 @@ public class FunctionalInterface1 {
 				return x%2==0;
 			}
 		};
-		//Function takes 2 input and returns one output
+		//Function takes 1 input and returns one output
 		Function< Integer,  Integer> squarefunction1 = new Function< Integer,  Integer>() {
 			@Override
 			public Integer apply(Integer x) {
