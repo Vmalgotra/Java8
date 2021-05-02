@@ -9,13 +9,15 @@ public class FunctionalInterface1 {
 		// TODO Auto-generated method stub
 		@SuppressWarnings("unused")
 		List <Integer> num = List.of(1,21,3,22,12,2,3,4,5,5);
-		//Function Interface -- They have only one abstract method. For every operation we write on stream, there is a functional interface
+		//Function Interface -- They have only one abstract method and that method is called function descriptor. For every operation we write on stream, there is a functional interface
 		//Using lambda expression we pass a logic to a functional interface
+		
 	// Actual Implementation	
 		num.stream()
 		.filter(x -> x%2==0)
 		.map(x -> x*x)
 		.forEach(System.out::println);
+		
 	// Internal Implementation	
 		Predicate<Integer> evenpredicate = x -> x%2==0; // These are functional interface (have anly one abstract method)
 		Function< Integer,  Integer> squarefunction = x -> x*x;
@@ -24,6 +26,7 @@ public class FunctionalInterface1 {
 		.filter(evenpredicate)
 		.map(squarefunction)
 		.forEach(Sysoutconsummer);
+		
 	//Actual Internal Implementation
 		//Predicate --> takes an input and retuens boolean
 		Predicate<Integer> evenpredicate1 = new Predicate<Integer>() {
