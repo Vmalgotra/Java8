@@ -154,12 +154,15 @@ public class FP04CustomClass {
 				     .dropWhile(course -> course.getReviewScore()>=95)
 				     .collect(Collectors.toList()));
 		//[FullStack:14000:91, AWS:21000:92, Azure:21000:99, Docker:20000:92, Kubernetes:20000:91]
-
+		// max returns the last elemsnt of the list
 		System.out.println(
 				courses.stream()
 				.max(comparingByNoOfStudentsAndNoOfReviews));
 		//Optional[FullStack:14000:91]
-
+		//optional helps us define default value there by avoiding null pointer exceptions. In case no consdition is met, it return Optional.empty and 
+		// if we define default value using orElse, then that value is taken.
+		
+		// min returns the first element of the list
 		System.out.println(
 				courses.stream()
 				.min(comparingByNoOfStudentsAndNoOfReviews)
