@@ -23,8 +23,12 @@ courses.stream().flatMap(course -> courses2.stream().map(course2 -> List.of(cour
   courses.stream().filter(courses -> courses.length()>11).map(String::toUpperCase).findFirst()
   //$25 ==> Optional[MICROSERVICE]
 courses.stream().peek(System.out::println).filter(courses -> courses.length()>11).map(String::toUpperCase).peek(System.out::println).findFirst()
+ //in java the intermediate functions are lazy and they are not executed till terminal operation is called. Thus it knows what it needs to do in terminal operation and 
+// hence efficiently does the intermediate operation
 courses.stream().peek(System.out::println).filter(courses -> courses.length()>11).map(String::toUpperCase).peek(System.out::println)
-$4.findFirst()
+// This does nothing returns  $29 ==> java.util.stream.ReferencePipeline$11@61e4705b
+ $29.findFirst()
+//This is when actual things happen. 
 List<String> courses = List.of("Spring", "Spring Boot", "API" , "Microservices","AWS", "PCF","Azure", "Docker", "Kubernetes");
 courses.replaceAll( str -> str.toUpperCase())
 List<String> modifyableCourses = new ArrayList(courses);
