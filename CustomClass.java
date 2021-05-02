@@ -239,12 +239,14 @@ public class FP04CustomClass {
 				.collect(Collectors.groupingBy(Course::getCategory, Collectors.counting())));
 		//{Cloud=4, FullStack=1, Microservices=2, Framework=2}
 
+		//if we want only the course with max reviewscore in the map
 		System.out.println(
 				courses.stream()
 				.collect(Collectors.groupingBy(Course::getCategory, 
 						Collectors.maxBy(Comparator.comparing(Course::getReviewScore)))));
 		//{Cloud=Optional[Azure:21000:99], FullStack=Optional[FullStack:14000:91], Microservices=Optional[API:22000:97], Framework=Optional[Spring:20000:98]}
 
+		//Till now the complete course was getting mapped to list but if we want to map only the name of the course
 		System.out.println(
 				courses.stream()
 				.collect(Collectors.groupingBy(Course::getCategory, 
