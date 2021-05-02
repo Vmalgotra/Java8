@@ -66,4 +66,20 @@ public class FunctionalInterface1 {
 //		}
 //		
 	}
+	
+	
+	//Represents an operation upon two operands of the same type, producing a result of the same type as the //operands.
+		int sum = num.stream().reduce(0,Integer::sum);
+// Actual Implementation	
+		BinaryOperator<Integer> sumaccumulator = Integer::sum;
+		BinaryOperator<Integer> sumaccumulator1 = new BinaryOperator<Integer>() {
+			@Override
+			public Integer apply(Integer t, Integer u) {
+				// TODO Auto-generated method stub
+				return t + u;
+			}
+		};
+		int sum = num.stream()
+		.reduce(0,sumaccumulator1);
+		System.out.print(sum);
 }
