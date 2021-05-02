@@ -96,6 +96,8 @@ public class FP04CustomClass {
 
 	}
 
+	
+	// Higher order function
 	private static Predicate<Course> createPredicateWithCutoffReviewScore(int cutoffReviewScore) {
 		return course -> course.getReviewScore() > cutoffReviewScore;
 	}
