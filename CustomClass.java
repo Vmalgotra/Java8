@@ -224,6 +224,7 @@ public class FP04CustomClass {
 				.mapToInt(Course::getNoOfStudents)
 				.max());//OptionalInt[25000]
 		
+		//to group the courses by category. This will create a map with key as category and calue as list of courses in that category
 		System.out.println(
 				courses.stream()
 				.collect(Collectors.groupingBy(Course::getCategory)));
@@ -231,7 +232,8 @@ public class FP04CustomClass {
 		//  FullStack=[FullStack:14000:91], 
 		// Microservices=[API:22000:97, Microservices:25000:96],
 		// Framework=[Spring:20000:98, Spring Boot:18000:95]}
-
+		
+		//to group the courses by category and value as the count of courses in that category.
 		System.out.println(
 				courses.stream()
 				.collect(Collectors.groupingBy(Course::getCategory, Collectors.counting())));
