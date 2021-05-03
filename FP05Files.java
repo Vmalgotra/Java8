@@ -16,8 +16,10 @@ public class FP05Files {
 		// .sorted()
 		// .forEach(System.out::println);
 		
-		Files.list(Paths.get("."))
-			.filter(Files::isDirectory)
+		// returns unique words from file
+		
+		Files.list(Paths.get(".")). // returns a stream of list of files in root 
+			.filter(Files::isDirectory) // filters directories and removes files
 			.forEach(System.out::println);
 
 	}
